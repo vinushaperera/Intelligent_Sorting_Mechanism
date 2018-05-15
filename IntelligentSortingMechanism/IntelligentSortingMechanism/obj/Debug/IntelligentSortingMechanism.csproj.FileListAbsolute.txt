@@ -23,3 +23,6 @@ D:\Coursework\4th Year\FYP\Implementation\IntelligentSortingMechanism\Intelligen
 D:\Coursework\4th Year\FYP\Implementation\IntelligentSortingMechanism\IntelligentSortingMechanism\obj\Debug\IntelligentSortingMechanism.csproj.GenerateResource.Cache
 D:\Coursework\4th Year\FYP\Implementation\IntelligentSortingMechanism\IntelligentSortingMechanism\obj\Debug\IntelligentSortingMechanism.exe
 D:\Coursework\4th Year\FYP\Implementation\IntelligentSortingMechanism\IntelligentSortingMechanism\obj\Debug\IntelligentSortingMechanism.pdb
+D:\Coursework\4th Year\FYP\Final Implementation\Intelligent_Sorting_Mechanism\IntelligentSortingMechanism\IntelligentSortingMechanism\bin\Debug\IntelligentSortingMechanism.exe.config
+D:\Coursework\4th Year\FYP\Final Implementation\Intelligent_Sorting_Mechanism\IntelligentSortingMechanism\IntelligentSortingMechanism\obj\Debug\IntelligentSortingMechanism.exe
+D:\Coursework\4th Year\FYP\Final Implementation\Intelligent_Sorting_Mechanism\IntelligentSortingMechanism\IntelligentSortingMechanism\obj\Debug\IntelligentSortingMechanism.pdb
