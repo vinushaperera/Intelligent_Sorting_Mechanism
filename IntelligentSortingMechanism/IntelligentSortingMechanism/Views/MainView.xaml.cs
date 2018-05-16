@@ -1,4 +1,5 @@
 ﻿using IntelligentSortingMechanism.Controllers;
+using IntelligentSortingMechanism.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,8 +28,8 @@ namespace IntelligentSortingMechanism.Views
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            DBHandler handler = new DBHandler();
-            handler.ConnectDB();
+            TaskModel model = new TaskModel();
+            model.DeleteTask(1);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using IntelligentSortingMechanism.Controllers;
+using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -112,6 +114,113 @@ namespace IntelligentSortingMechanism.Models
             {
                 this.task_front = value;
             }
+        }
+
+
+        public int InsertTask(string task_desc, string task_deadline, int task_priority, string task_link_id, int task_list_id, int task_sorted_order, int task_front)
+        {
+            DBHandler db = new DBHandler();
+            MySqlConnection connection = db.ConnectDB();
+            int results = 0;
+            MySqlCommand cmd;
+
+            try
+            {
+                cmd = connection.CreateCommand();
+                cmd.CommandText = "INSERT INTO tasks(task_desc, task_deadline, task_priority, task_link_id, task_list_id, task_sorted_order, task_front) VALUES(@task_desc, @task_deadline, @task_priority, @task_link_id, @task_list_id, @task_sorted_order, @task_front)";
+                cmd.Parameters.AddWithValue("@task_desc", task_desc);
+                cmd.Parameters.AddWithValue("@task_deadline", task_deadline);
+                cmd.Parameters.AddWithValue("@task_priority", task_priority);
+                cmd.Parameters.AddWithValue("@task_link_id", task_link_id);
+                cmd.Parameters.AddWithValue("@task_list_id", task_list_id);
+                cmd.Parameters.AddWithValue("@task_sorted_order", task_sorted_order);
+                cmd.Parameters.AddWithValue("@task_front", task_front);
+
+                results = cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.GetBaseException());
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                {
+                    db.CloseDB(connection);
+                }
+            }
+
+            return results;
+        }
+
+        public int UpdateTask(int task_id, string task_desc, string task_deadline, int task_priority, string task_link_id, int task_list_id, int task_sorted_order, int task_front)
+        {
+            DBHandler db = new DBHandler();
+            MySqlConnection connection = db.ConnectDB();
+            int results = 0;
+            MySqlCommand cmd;
+
+            try
+            {
+                cmd = connection.CreateCommand();
+                cmd.CommandText = "UPDATE tasks SET task_desc=@task_desc, task_deadline=@task_deadline, task_priority=@task_priority, task_link_id=@task_link_id, task_list_id=@task_list_id, task_sorted_order=@task_sorted_order, task_front=@task_front WHERE task_id=@task_id";
+                cmd.Parameters.AddWithValue("@task_desc", task_desc);
+                cmd.Parameters.AddWithValue("@task_deadline", task_deadline);
+                cmd.Parameters.AddWithValue("@task_priority", task_priority);
+                cmd.Parameters.AddWithValue("@task_link_id", task_link_id);
+                cmd.Parameters.AddWithValue("@task_list_id", task_list_id);
+                cmd.Parameters.AddWithValue("@task_sorted_order", task_sorted_order);
+                cmd.Parameters.AddWithValue("@task_front", task_front);
+                cmd.Parameters.AddWithValue("@task_id", task_id);
+
+                results = cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.GetBaseException());
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                {
+                    db.CloseDB(connection);
+                }
+            }
+
+            return results;
+        }
+
+        public int DeleteTask(int task_id)
+        {
+            DBHandler db = new DBHandler();
+            MySqlConnection connection = db.ConnectDB();
+            int results = 0;
+            MySqlCommand cmd;
+
+            try
+            {
+                cmd = connection.CreateCommand();
+                cmd.CommandText = "DELETE FROM tasks WHERE task_id=@task_id";
+                cmd.Parameters.AddWithValue("@task_id", task_id);
+
+                results = cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.GetBaseException());
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                {
+                    db.CloseDB(connection);
+                }
+            }
+
+            return results;
         }
 
     }
