@@ -162,5 +162,97 @@ namespace IntelligentSortingMechanism.Models
 
             return results;
         }
+
+        public List<ListModel> GetAllLists(int user_id)
+        {
+            DBHandler db = new DBHandler();
+            MySqlConnection connection = db.ConnectDB();
+            MySqlCommand cmd;
+            List<ListModel> lists = new List<ListModel>();
+
+            try
+            {
+                cmd = connection.CreateCommand();
+                cmd.CommandText = "SELECT * FROM lists WHERE list_user_id=@list_user_id";
+                cmd.Parameters.AddWithValue("@list_user_id", user_id);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    
+                    int list_id = (int)reader["list_id"];
+                    string list_name = (string)reader["list_name"];
+                    int list_user_id = (int)reader["list_user_id"];
+                    int list_fronts = (int)reader["list_fronts"];
+
+                    ListModel list = new ListModel();
+                    list.List_id = list_id;
+                    list.List_name = list_name;
+                    list.List_user_id = list_user_id;
+                    list.List_fronts = list_fronts;
+
+                    lists.Add(list);
+                }
+                
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.GetBaseException());
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                {
+                    db.CloseDB(connection);
+                }
+            }
+
+            return lists;
+        }
+
+        public ListModel GetList(int list_id)
+        {
+            DBHandler db = new DBHandler();
+            MySqlConnection connection = db.ConnectDB();
+            MySqlCommand cmd;
+            ListModel list = new ListModel();
+
+            try
+            {
+                cmd = connection.CreateCommand();
+                cmd.CommandText = "SELECT * FROM lists WHERE list_id=@list_id";
+                cmd.Parameters.AddWithValue("@list_id", list_id);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int id = (int)reader["list_id"];
+                    string list_name = (string)reader["list_name"];
+                    int list_user_id = (int)reader["list_user_id"];
+                    int list_fronts = (int)reader["list_fronts"];
+                    
+                    list.List_id = id;
+                    list.List_name = list_name;
+                    list.List_user_id = list_user_id;
+                    list.List_fronts = list_fronts;
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.GetBaseException());
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                {
+                    db.CloseDB(connection);
+                }
+            }
+
+            return list;
+        }
     }
 }

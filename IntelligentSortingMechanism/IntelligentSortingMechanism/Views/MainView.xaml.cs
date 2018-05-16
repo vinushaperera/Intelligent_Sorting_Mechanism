@@ -28,8 +28,10 @@ namespace IntelligentSortingMechanism.Views
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            TaskModel model = new TaskModel();
-            model.DeleteTask(1);
+            ListModel model = new ListModel();
+            ListModel list = model.GetList(1);
+            List<ListModel> lists = model.GetAllLists(1);
+            
         }
     }
 }

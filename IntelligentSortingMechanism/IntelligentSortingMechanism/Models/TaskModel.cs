@@ -223,5 +223,61 @@ namespace IntelligentSortingMechanism.Models
             return results;
         }
 
+        public List<TaskModel> GetAllListTasks(int list_id)
+        {
+            DBHandler db = new DBHandler();
+            MySqlConnection connection = db.ConnectDB();
+            MySqlCommand cmd;
+            List<TaskModel> taskList = new List<TaskModel>();
+
+            try
+            {
+                cmd = connection.CreateCommand();
+                cmd.CommandText = "SELECT * FROM tasks WHERE task_list_id=@task_list_id";
+                cmd.Parameters.AddWithValue("@task_list_id", list_id);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+
+                    int task_id = (int)reader["task_id"];
+                    string task_desc = (string)reader["task_desc"];
+                    DateTime task_deadline = (DateTime)reader["task_deadline"];
+                    int task_priority = (int)reader["task_priority"];
+                    string task_link_id = (string)reader["task_link_id"];
+                    int task_list_id = (int)reader["task_list_id"];
+                    int task_sorted_order = (int)reader["task_sorted_order"];
+                    int task_front = (int)reader["task_front"];
+
+                    TaskModel task = new TaskModel();
+                    task.Task_id = task_id;
+                    task.Task_desc = task_desc;
+                    task.Task_deadline = task_deadline;
+                    task.Task_priority = task_priority;
+                    task.Task_link_id = task_link_id;
+                    task.Task_list_id = task_list_id;
+                    task.Task_sorted_order = task_sorted_order;
+                    task.Task_front = task_front;
+
+                    taskList.Add(task);
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.GetBaseException());
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                {
+                    db.CloseDB(connection);
+                }
+            }
+
+            return taskList;
+        }
+
     }
 }
