@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="AllListsView" Height="415.888" Width="455.14">
     <Grid>
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top" Height="331" Width="283"/>
+        <DataGrid x:Name="all_lists_grid" ItemsSource="{Binding AllLists}" HorizontalAlignment="Left" Margin="21,44,0,0" VerticalAlignment="Top" Height="305" Width="272"/>
         <Button x:Name="new_list_btn" Content="New List" HorizontalAlignment="Left" Margin="318,131,0,0" VerticalAlignment="Top" Width="75" Click="new_list_btn_Click"/>
         <Button x:Name="button1" Content="Button" HorizontalAlignment="Left" Margin="318,175,0,0" VerticalAlignment="Top" Width="75"/>
 

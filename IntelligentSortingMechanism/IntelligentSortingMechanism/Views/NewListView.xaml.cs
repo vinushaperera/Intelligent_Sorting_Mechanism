@@ -63,6 +63,7 @@ namespace IntelligentSortingMechanism.Views
 
             ListController controller = new ListController();
             controller.AddNewList(list, tasks);
+            this.Close();
         }
 
         private void add_task_btn_Click(object sender, RoutedEventArgs e)

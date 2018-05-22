@@ -1,5 +1,7 @@
-﻿using System;
+﻿using IntelligentSortingMechanism.Models;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +21,38 @@ namespace IntelligentSortingMechanism.Views
     /// </summary>
     public partial class AllListsView : Window
     {
+
+        private static ObservableCollection<ListModel> all_lists;
+
+        public static ObservableCollection<ListModel> AllLists
+        {
+            get
+            {
+                return all_lists;
+            }
+            set
+            {
+                all_lists = value;
+            }
+        }
+
         public AllListsView()
         {
             InitializeComponent();
+            this.DataContext = this;
+            all_lists = new ObservableCollection<ListModel>();
+            AllListsLoad();
+        }
+
+        private void AllListsLoad()
+        {
+            ListModel list = new ListModel();
+            List<ListModel> lists = list.GetAllLists(0);
+
+            foreach (ListModel item in lists)
+            {
+                AllLists.Add(item);
+            }
         }
 
         private void new_list_btn_Click(object sender, RoutedEventArgs e)
