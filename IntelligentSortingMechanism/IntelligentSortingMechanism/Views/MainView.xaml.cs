@@ -28,9 +28,10 @@ namespace IntelligentSortingMechanism.Views
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            ListModel model = new ListModel();
-            ListModel list = model.GetList(1);
-            List<ListModel> lists = model.GetAllLists(1);
+            AllListsView all_lists = new AllListsView();
+            all_lists.Activate();
+            all_lists.Show();
+            this.Close();
             
         }
     }

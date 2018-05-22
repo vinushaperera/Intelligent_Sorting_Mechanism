@@ -48,3 +48,7 @@ D:\Coursework\4th Year\FYP\Final Implementation\Intelligent_Sorting_Mechanism\In
 D:\Coursework\4th Year\FYP\Final Implementation\Intelligent_Sorting_Mechanism\IntelligentSortingMechanism\IntelligentSortingMechanism\obj\Debug\IntelligentSortingMechanism.g.resources
 D:\Coursework\4th Year\FYP\Final Implementation\Intelligent_Sorting_Mechanism\IntelligentSortingMechanism\IntelligentSortingMechanism\obj\Debug\IntelligentSortingMechanism.Properties.Resources.resources
 D:\Coursework\4th Year\FYP\Final Implementation\Intelligent_Sorting_Mechanism\IntelligentSortingMechanism\IntelligentSortingMechanism\obj\Debug\IntelligentSortingMechanism.csproj.GenerateResource.Cache
+D:\Coursework\4th Year\FYP\Final Implementation\Intelligent_Sorting_Mechanism\IntelligentSortingMechanism\IntelligentSortingMechanism\obj\Debug\Views\NewListView.g.cs
+D:\Coursework\4th Year\FYP\Final Implementation\Intelligent_Sorting_Mechanism\IntelligentSortingMechanism\IntelligentSortingMechanism\obj\Debug\Views\NewListView.baml
+D:\Coursework\4th Year\FYP\Final Implementation\Intelligent_Sorting_Mechanism\IntelligentSortingMechanism\IntelligentSortingMechanism\obj\Debug\Views\AddTaskView.g.cs
+D:\Coursework\4th Year\FYP\Final Implementation\Intelligent_Sorting_Mechanism\IntelligentSortingMechanism\IntelligentSortingMechanism\obj\Debug\Views\AddTaskView.baml

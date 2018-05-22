@@ -1,0 +1,50 @@
+﻿using IntelligentSortingMechanism.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+namespace IntelligentSortingMechanism.Views
+{
+    /// <summary>
+    /// Interaction logic for AddTaskView.xaml
+    /// </summary>
+    public partial class AddTaskView : Window
+    {
+        public AddTaskView()
+        {
+            InitializeComponent();
+        }
+
+        private void add_task_btn_Click(object sender, RoutedEventArgs e)
+        {
+            TaskModel task = new TaskModel();
+            task.Task_desc = task_desc_box.Text;
+            task.Task_priority = 1;
+            //Convert.ToInt16(task_priority_combo.Text)
+            task.Task_deadline = (DateTime)task_deadline_date.SelectedDate;
+            task.Task_front = 0;
+            task.Task_link_id = "id123";
+            task.Task_list_id = 0;
+            task.Task_sorted_order = 0;
+
+            NewListView.NewTasks.Add(task);
+            Console.WriteLine("Tasks Count : " + NewListView.NewTasks.Count);
+            this.Close();
+        }
+
+        private void back_btn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+    }
+}

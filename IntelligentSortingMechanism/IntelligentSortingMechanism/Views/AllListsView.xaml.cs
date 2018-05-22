@@ -23,5 +23,12 @@ namespace IntelligentSortingMechanism.Views
         {
             InitializeComponent();
         }
+
+        private void new_list_btn_Click(object sender, RoutedEventArgs e)
+        {
+            NewListView list_view = new NewListView();
+            list_view.Activate();
+            list_view.Show();
+        }
     }
 }
