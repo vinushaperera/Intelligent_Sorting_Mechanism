@@ -61,6 +61,7 @@
     <Compile Include="Controllers\ListController.cs" />
     <Compile Include="Controllers\SortingController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Models\FrontModel.cs" />
     <Compile Include="Models\ListModel.cs" />
     <Compile Include="Views\AddTaskView.xaml.cs">
       <DependentUpon>AddTaskView.xaml</DependentUpon>

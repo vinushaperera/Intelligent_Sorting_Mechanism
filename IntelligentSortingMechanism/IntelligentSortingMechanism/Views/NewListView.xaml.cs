@@ -25,6 +25,7 @@ namespace IntelligentSortingMechanism.Views
 
         #region Variables and Properties
 
+        private UserModel user_logged = new UserModel();
         private ListModel list;
         private static ObservableCollection<TaskModel> tasks;
 
@@ -42,10 +43,12 @@ namespace IntelligentSortingMechanism.Views
 
         #endregion
 
-        public NewListView()
+        public NewListView(UserModel user)
         {            
             InitializeComponent();
             this.DataContext = this;
+            user_logged = user;
+
             list = new ListModel();
             tasks = new ObservableCollection<TaskModel>();
         }
@@ -57,18 +60,22 @@ namespace IntelligentSortingMechanism.Views
             if (!string.IsNullOrWhiteSpace(list_name_box.Text))
             {
                 list.List_name = list_name_box.Text;
-                list.List_user_id = 0;
+                list.List_user_id = user_logged.User_id;
                 list.List_fronts = 0;
             }
 
             ListController controller = new ListController();
             controller.AddNewList(list, tasks);
+
+            AllListsView lists_view = new AllListsView(user_logged);
+            lists_view.Activate();
+            lists_view.Show();
             this.Close();
         }
 
         private void add_task_btn_Click(object sender, RoutedEventArgs e)
         {
-            AddTaskView add_task = new AddTaskView();
+            AddTaskView add_task = new AddTaskView(user_logged);
             add_task.Activate();
             add_task.Show();
         }

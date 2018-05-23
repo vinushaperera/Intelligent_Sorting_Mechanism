@@ -10,10 +10,14 @@ namespace IntelligentSortingMechanism.Models
 {
     public class ListModel
     {
+
+        #region Variables and Properties
+
         private int list_id;
         private string list_name;
         private int list_user_id;
         private int list_fronts;
+        private bool new_list;
 
         public int List_id
         {
@@ -63,9 +67,23 @@ namespace IntelligentSortingMechanism.Models
             }
         }
 
+        public bool New_List
+        {
+            get
+            {
+                return new_list;
+            }
+            set
+            {
+                this.new_list = value;
+            }
+        }
 
+        #endregion
 
-        public int InsertList(string list_name, int list_user_id, int list_fronts)
+        #region Helper Methods
+
+        public int InsertList(string list_name, int list_user_id, int list_fronts, bool new_list)
         {
             DBHandler db = new DBHandler();
             MySqlConnection connection = db.ConnectDB();
@@ -75,10 +93,11 @@ namespace IntelligentSortingMechanism.Models
             try
             {
                 cmd = connection.CreateCommand();
-                cmd.CommandText = "INSERT INTO lists(list_name, list_user_id, list_fronts) VALUES(@list_name, @list_user_id, @list_fronts)";
+                cmd.CommandText = "INSERT INTO lists(list_name, list_user_id, list_fronts, new_list) VALUES(@list_name, @list_user_id, @list_fronts, @new_list)";
                 cmd.Parameters.AddWithValue("@list_name", list_name);
                 cmd.Parameters.AddWithValue("@list_user_id", list_user_id);
                 cmd.Parameters.AddWithValue("@list_fronts", list_fronts);
+                cmd.Parameters.AddWithValue("@new_list", new_list);
 
                 results = cmd.ExecuteNonQuery();
                 
@@ -98,7 +117,7 @@ namespace IntelligentSortingMechanism.Models
             return results;
         }
 
-        public int UpdateList(int list_id, string list_name, int list_user_id, int list_fronts)
+        public int UpdateList(int list_id, string list_name, int list_user_id, int list_fronts, bool new_list)
         {
             DBHandler db = new DBHandler();
             MySqlConnection connection = db.ConnectDB();
@@ -108,11 +127,12 @@ namespace IntelligentSortingMechanism.Models
             try
             {
                 cmd = connection.CreateCommand();
-                cmd.CommandText = "UPDATE lists SET list_name=@list_name, list_user_id=@list_user_id, list_fronts=@list_fronts WHERE list_id=@list_id";
+                cmd.CommandText = "UPDATE lists SET list_name=@list_name, list_user_id=@list_user_id, list_fronts=@list_fronts, new_list=@new_list WHERE list_id=@list_id";
                 cmd.Parameters.AddWithValue("@list_name", list_name);
                 cmd.Parameters.AddWithValue("@list_user_id", list_user_id);
                 cmd.Parameters.AddWithValue("@list_fronts", list_fronts);
                 cmd.Parameters.AddWithValue("@list_id", list_id);
+                cmd.Parameters.AddWithValue("@new_list", new_list);
 
                 results = cmd.ExecuteNonQuery();
                 
@@ -185,12 +205,14 @@ namespace IntelligentSortingMechanism.Models
                     string list_name = (string)reader["list_name"];
                     int list_user_id = (int)reader["list_user_id"];
                     int list_fronts = (int)reader["list_fronts"];
+                    bool new_list = (bool)reader["new_list"];
 
                     ListModel list = new ListModel();
                     list.List_id = list_id;
                     list.List_name = list_name;
                     list.List_user_id = list_user_id;
                     list.List_fronts = list_fronts;
+                    list.New_List = new_list;
 
                     lists.Add(list);
                 }
@@ -232,11 +254,13 @@ namespace IntelligentSortingMechanism.Models
                     string list_name = (string)reader["list_name"];
                     int list_user_id = (int)reader["list_user_id"];
                     int list_fronts = (int)reader["list_fronts"];
-                    
+                    bool new_list = (bool)reader["new_list"];
+
                     list.List_id = id;
                     list.List_name = list_name;
                     list.List_user_id = list_user_id;
                     list.List_fronts = list_fronts;
+                    list.New_List = new_list;
                 }
 
             }
@@ -254,5 +278,43 @@ namespace IntelligentSortingMechanism.Models
 
             return list;
         }
+
+        public int GetListId()
+        {
+            DBHandler db = new DBHandler();
+            MySqlConnection connection = db.ConnectDB();
+            MySqlCommand cmd;
+            int list_id = 0;
+
+            try
+            {
+                cmd = connection.CreateCommand();
+                cmd.CommandText = "SELECT * FROM lists WHERE new_list=@new_list";
+                cmd.Parameters.AddWithValue("@new_list", true);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    list_id = (int)reader["list_id"];                  
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.GetBaseException());
+            }
+            finally
+            {
+                if (connection.State == System.Data.ConnectionState.Open)
+                {
+                    db.CloseDB(connection);
+                }
+            }
+
+            return list_id;
+        }
+
+        #endregion
     }
 }

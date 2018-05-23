@@ -20,9 +20,17 @@ namespace IntelligentSortingMechanism.Views
     /// </summary>
     public partial class AddTaskView : Window
     {
-        public AddTaskView()
+
+        #region Variables and Properties
+
+        private UserModel user_logged = new UserModel();
+                
+        #endregion
+
+        public AddTaskView(UserModel user)
         {
             InitializeComponent();
+            user = user_logged;
         }
 
         private void add_task_btn_Click(object sender, RoutedEventArgs e)

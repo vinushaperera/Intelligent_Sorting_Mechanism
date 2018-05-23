@@ -18,7 +18,24 @@ namespace IntelligentSortingMechanism.Models
         private int task_list_id;
         private int task_sorted_order;
         private int task_front;
+        private int rem_days;
 
+        public TaskModel()
+        {
+
+        }
+
+        public TaskModel(int task_id, string task_desc, DateTime task_deadline, int task_priority, string task_link_id, int task_list_id, int task_sorted_order, int task_front)
+        {
+            this.task_id = task_id;
+            this.task_desc = task_desc;
+            this.task_deadline = task_deadline;
+            this.task_priority = task_priority;
+            this.task_link_id = task_link_id;
+            this.task_list_id = task_list_id;
+            this.task_sorted_order = task_sorted_order;
+            this.task_front = task_front;
+        }
 
         public int Task_id
         {
@@ -113,6 +130,18 @@ namespace IntelligentSortingMechanism.Models
             set
             {
                 this.task_front = value;
+            }
+        }
+
+        public int Rem_days
+        {
+            get
+            {
+                return rem_days;
+            }
+            set
+            {
+                this.rem_days = value;
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IntelligentSortingMechanism.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,7 @@ namespace IntelligentSortingMechanism.Views
     /// </summary>
     public partial class ListView : Window
     {
-        public ListView()
+        public ListView(ListModel list)
         {
             InitializeComponent();
         }

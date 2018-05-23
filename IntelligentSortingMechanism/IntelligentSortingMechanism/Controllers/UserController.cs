@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace IntelligentSortingMechanism.Controllers
 {
-    class UserController
+    public class UserController
     {
+
     }
 }
