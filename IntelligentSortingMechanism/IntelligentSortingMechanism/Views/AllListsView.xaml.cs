@@ -75,9 +75,12 @@ namespace IntelligentSortingMechanism.Views
         {
             ListModel list = all_lists_grid.SelectedItem as ListModel;
 
-            ListView list_view = new ListView(list);
-            list_view.Activate();
-            list_view.Show();
+            if(list != null)
+            {
+                ListView list_view = new ListView(user_logged, list);
+                list_view.Activate();
+                list_view.Show();
+            }            
         }
 
         private void exit_btn_Click(object sender, RoutedEventArgs e)
@@ -100,6 +103,11 @@ namespace IntelligentSortingMechanism.Views
                 }
             }
             
+        }
+
+        private void edit_btn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

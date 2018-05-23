@@ -272,7 +272,9 @@ namespace IntelligentSortingMechanism.Models
 
                     int task_id = (int)reader["task_id"];
                     string task_desc = (string)reader["task_desc"];
-                    DateTime task_deadline = (DateTime)reader["task_deadline"];
+                    string date = (string)reader["task_deadline"];
+                    string[] values = date.Split(' ');
+                    DateTime task_deadline = Convert.ToDateTime(values[0]);
                     int task_priority = (int)reader["task_priority"];
                     string task_link_id = (string)reader["task_link_id"];
                     int task_list_id = (int)reader["task_list_id"];

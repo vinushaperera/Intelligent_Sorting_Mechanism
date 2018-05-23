@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IntelligentSortingMechanism.Views"
         mc:Ignorable="d"
-        Title="ListView" Height="300" Width="300">
+        Title="ListView" Height="460" Width="460">
     <Grid>
-        
+        <DataGrid x:Name="list_tasks_grid" ItemsSource="{Binding Tasks_List}" HorizontalAlignment="Left" Margin="28,75,0,0" VerticalAlignment="Top" Height="225" Width="401"/>
+        <Button x:Name="sort_btn" Content="Sort List" HorizontalAlignment="Left" Margin="141,337,0,0" VerticalAlignment="Top" Width="75" Click="sort_btn_Click"/>
+        <Button x:Name="back_btn" Content="Back" HorizontalAlignment="Left" Margin="258,337,0,0" VerticalAlignment="Top" Width="75" Click="back_btn_Click"/>
+        <TextBlock x:Name="list_name_txt" FontSize="18" HorizontalAlignment="Left" Margin="169,25,0,0" TextWrapping="Wrap" Text="List Name" VerticalAlignment="Top" Width="194"/>
+
     </Grid>
 </Window>

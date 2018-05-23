@@ -44,5 +44,37 @@ namespace IntelligentSortingMechanism.Controllers
                 return false;
             }
         }
+
+        public List<TaskModel> GetTasks(int list_id)
+        {
+            TaskModel task = new TaskModel();
+            List<TaskModel> list = task.GetAllListTasks(list_id);
+
+            return list;
+        }
+
+        public void SaveSortedList(ListModel list, List<TaskModel> tasks)
+        {
+            ListModel list_model = new ListModel();
+            TaskModel task_model = new TaskModel();
+
+            if(tasks.Count == 0 || list == null)
+            {
+                return;
+            }
+            else
+            {
+                int status = list_model.UpdateList(list.List_id, list.List_name, list.List_user_id, list.List_fronts, list.New_List);
+
+                foreach (var item in tasks)
+                {
+                    string deadline = item.Task_deadline.ToString();
+                    task_model.UpdateTask(item.Task_id, item.Task_desc, deadline, item.Task_priority, item.Task_link_id, item.Task_list_id, item.Task_sorted_order, item.Task_front);
+                }
+
+            }
+        }
+
+        
     }
 }

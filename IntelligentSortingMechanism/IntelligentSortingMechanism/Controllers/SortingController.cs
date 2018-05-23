@@ -50,11 +50,13 @@ namespace IntelligentSortingMechanism.Controllers
 
         }
 
-        public void SortingHandler(List<TaskModel> tasks)
+        public Dictionary<int, List<TaskModel>> SortingHandler(List<TaskModel> tasks)
         {            
             tasks = RemainingDaysCalc(tasks);
-            tasks = InitSorting(tasks);          
-            
+            tasks = InitSorting(tasks);
+            Dictionary<int, List<TaskModel>> final_list =  NonDominatedSorting(tasks);
+
+            return final_list;
         }
 
         public List<TaskModel> RemainingDaysCalc(List<TaskModel> tasks)
