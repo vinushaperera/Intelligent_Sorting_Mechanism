@@ -9,14 +9,14 @@
     <Grid>
         <Button x:Name="add_task_btn" Content="Add Task" HorizontalAlignment="Left" Margin="353,135,0,0" VerticalAlignment="Top" Width="75" Click="add_task_btn_Click"/>
         <Button x:Name="import_list_btn" Content="Import Tasks" HorizontalAlignment="Left" Margin="353,290,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="back_btn" Content="Back" HorizontalAlignment="Left" Margin="250,384,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="back_btn" Content="Back" HorizontalAlignment="Left" Margin="250,384,0,0" VerticalAlignment="Top" Width="75" Click="back_btn_Click"/>
         <Button x:Name="done_btn" Content="Done" HorizontalAlignment="Left" Margin="117,384,0,0" VerticalAlignment="Top" Width="75" Click="done_btn_Click"/>
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="26,101,0,0" VerticalAlignment="Top" Height="245" Width="299" ItemsSource="{Binding NewTasks}"/>
+        <DataGrid x:Name="task_list_grid" SelectionMode="Single" HorizontalAlignment="Left" Margin="26,101,0,0" VerticalAlignment="Top" Height="245" Width="299" ItemsSource="{Binding NewTasks}"/>
         <Label x:Name="list_name_lbl" Content="List Name : " HorizontalAlignment="Left" Margin="37,52,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="list_name_box" HorizontalAlignment="Left" Height="23" Margin="125,55,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="192,10,0,0" TextWrapping="Wrap" FontSize="18" Text="New List" VerticalAlignment="Top"/>
-        <Button x:Name="edit_task_btn" Content="Edit Task" HorizontalAlignment="Left" Margin="353,174,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="delete_task_btn" Content="Delete Task" HorizontalAlignment="Left" Margin="353,213,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="edit_task_btn" Content="Edit Task" HorizontalAlignment="Left" Margin="353,174,0,0" VerticalAlignment="Top" Width="75" Click="edit_task_btn_Click"/>
+        <Button x:Name="delete_task_btn" Content="Delete Task" HorizontalAlignment="Left" Margin="353,213,0,0" VerticalAlignment="Top" Width="75" Click="delete_task_btn_Click"/>
 
     </Grid>
 </Window>

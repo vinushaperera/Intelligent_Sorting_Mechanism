@@ -29,5 +29,20 @@ namespace IntelligentSortingMechanism.Controllers
                 }
             }
         }
+
+        public bool DeleteList(int list_id)
+        {
+            ListModel list = new ListModel();
+            int result = list.DeleteList(list_id);
+
+            if(result > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

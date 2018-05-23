@@ -79,5 +79,52 @@ namespace IntelligentSortingMechanism.Views
             add_task.Activate();
             add_task.Show();
         }
+
+        private void edit_task_btn_Click(object sender, RoutedEventArgs e)
+        {
+            TaskModel task = task_list_grid.SelectedItem as TaskModel;
+
+            if(task != null)
+            {
+
+            }
+        }
+
+        private void delete_task_btn_Click(object sender, RoutedEventArgs e)
+        {
+            TaskModel task = task_list_grid.SelectedItem as TaskModel;
+
+            if (task != null)
+            {
+                int hash_selected = task.GetHashCode();
+                TaskModel selectedTask = new TaskModel();
+                bool itemFound = false;
+
+                foreach (var item in tasks)
+                {
+                    int hash_item = item.GetHashCode();
+
+                    if(hash_item == hash_selected)
+                    {
+                        selectedTask = item;
+                        itemFound = true;
+                        break;
+                    }
+                }
+
+                if (itemFound)
+                {
+                    tasks.Remove(selectedTask);
+                }
+            }
+        }
+
+        private void back_btn_Click(object sender, RoutedEventArgs e)
+        {
+            AllListsView all_view = new AllListsView(user_logged);
+            all_view.Activate();
+            all_view.Show();
+            this.Close();
+        }
     }
 }

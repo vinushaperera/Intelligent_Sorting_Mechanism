@@ -1,4 +1,5 @@
-﻿using IntelligentSortingMechanism.Models;
+﻿using IntelligentSortingMechanism.Controllers;
+using IntelligentSortingMechanism.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -82,6 +83,23 @@ namespace IntelligentSortingMechanism.Views
         private void exit_btn_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void delete_list_Click(object sender, RoutedEventArgs e)
+        {
+            ListModel delete_list = all_lists_grid.SelectedItem as ListModel;
+
+            if(delete_list != null)
+            {
+                ListController controller = new ListController();
+                bool result = controller.DeleteList(delete_list.List_id);
+
+                if (result)
+                {
+                    all_lists.Remove(delete_list);
+                }
+            }
+            
         }
     }
 }

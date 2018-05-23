@@ -11,7 +11,7 @@
         <Button x:Name="new_list_btn" Content="New List" HorizontalAlignment="Left" Margin="339,154,0,0" VerticalAlignment="Top" Width="75" Click="new_list_btn_Click"/>
         <Button x:Name="view_list_btn" Content="View List" HorizontalAlignment="Left" Margin="339,109,0,0" VerticalAlignment="Top" Width="75" Click="view_list_btn_Click"/>
         <TextBlock x:Name="all_lists_header" HorizontalAlignment="Left" FontSize="18" Margin="194,10,0,0" TextWrapping="Wrap" Text="All Lists" VerticalAlignment="Top"/>
-        <Button x:Name="delete_list" Content="Delete List" HorizontalAlignment="Left" Margin="339,197,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="delete_list" Content="Delete List" HorizontalAlignment="Left" Margin="339,197,0,0" VerticalAlignment="Top" Width="75" Click="delete_list_Click"/>
         <Button x:Name="exit_btn" Content="Exit" HorizontalAlignment="Left" Margin="339,339,0,0" VerticalAlignment="Top" Width="75" Click="exit_btn_Click"/>
 
     </Grid>

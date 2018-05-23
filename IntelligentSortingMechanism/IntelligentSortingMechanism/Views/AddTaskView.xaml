@@ -16,6 +16,8 @@
         <ComboBox x:Name="task_priority_combo" HorizontalAlignment="Left" Margin="220,173,0,0" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="back_btn" Content="Back" HorizontalAlignment="Left" Margin="253,299,0,0" VerticalAlignment="Top" Width="75" Click="back_btn_Click"/>
         <Button x:Name="add_task_btn" Content="Add Task" HorizontalAlignment="Left" Margin="132,299,0,0" VerticalAlignment="Top" Width="75" Click="add_task_btn_Click"/>
+        <Label x:Name="link_id_lbl" Content="Task Link ID" HorizontalAlignment="Left" Margin="86,223,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="link_id_box" HorizontalAlignment="Left" Height="23" Margin="220,223,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>

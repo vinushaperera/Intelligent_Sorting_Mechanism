@@ -36,17 +36,17 @@ namespace IntelligentSortingMechanism.Views
         private void add_task_btn_Click(object sender, RoutedEventArgs e)
         {
             TaskModel task = new TaskModel();
+
             task.Task_desc = task_desc_box.Text;
             task.Task_priority = 1;
-            //Convert.ToInt16(task_priority_combo.Text)
             task.Task_deadline = (DateTime)task_deadline_date.SelectedDate;
-            task.Task_front = 0;
-            task.Task_link_id = "id123";
+            task.Task_link_id = link_id_box.Text;
+
+            task.Task_front = 0;            
             task.Task_list_id = 0;
             task.Task_sorted_order = 0;
 
             NewListView.NewTasks.Add(task);
-            Console.WriteLine("Tasks Count : " + NewListView.NewTasks.Count);
             this.Close();
         }
 
