@@ -80,6 +80,7 @@ namespace IntelligentSortingMechanism.Views
                 ListView list_view = new ListView(user_logged, list);
                 list_view.Activate();
                 list_view.Show();
+                this.Close();
             }            
         }
 

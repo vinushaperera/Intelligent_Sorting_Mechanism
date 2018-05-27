@@ -19,7 +19,10 @@ namespace IntelligentSortingMechanism.Models
         private int task_sorted_order;
         private int task_front;
         private int rem_days;
+        private string priority_txt;
+        private bool num_priority;
 
+        
         public TaskModel()
         {
 
@@ -142,6 +145,30 @@ namespace IntelligentSortingMechanism.Models
             set
             {
                 this.rem_days = value;
+            }
+        }
+
+        public string Priority_Txt
+        {
+            get
+            {
+                return priority_txt;
+            }
+            set
+            {
+                this.priority_txt = value;
+            }
+        }
+
+        public bool Num_Priority
+        {
+            get
+            {
+                return num_priority;
+            }
+            set
+            {
+                this.num_priority = value;
             }
         }
 

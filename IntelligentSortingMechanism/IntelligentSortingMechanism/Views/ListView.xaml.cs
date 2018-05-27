@@ -1,5 +1,6 @@
 ﻿using IntelligentSortingMechanism.Controllers;
 using IntelligentSortingMechanism.Models;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WinForms = System.Windows.Forms;
 
 namespace IntelligentSortingMechanism.Views
 {
@@ -55,11 +57,14 @@ namespace IntelligentSortingMechanism.Views
             List<TaskModel> sorted_list = temp_list.OrderBy(o=>o.Task_sorted_order).ToList();
 
             tasks_list = new ObservableCollection<TaskModel>(sorted_list);
-            
+            list_name_txt.Text = viewed_list.List_name;
         }
 
         private void back_btn_Click(object sender, RoutedEventArgs e)
         {
+            AllListsView all_list_view = new AllListsView(user_logged);
+            all_list_view.Activate();
+            all_list_view.Show();
             this.Close();
         }
 
@@ -91,6 +96,23 @@ namespace IntelligentSortingMechanism.Views
             ListController list_controller = new ListController();
             list_controller.SaveSortedList(viewed_list, new List<TaskModel>(tasks_list));
 
+        }
+
+        private void export_list_Click(object sender, RoutedEventArgs e)
+        {
+            WinForms.FolderBrowserDialog folderBrowser = new System.Windows.Forms.FolderBrowserDialog();
+            folderBrowser.ShowNewFolderButton = false;
+            WinForms.DialogResult result = folderBrowser.ShowDialog();
+            string path = "";
+
+            if(result == WinForms.DialogResult.OK)
+            {
+                path = folderBrowser.SelectedPath;
+                ListController controller = new ListController();
+                controller.WriteExcel(new List<TaskModel>(tasks_list), path, viewed_list.List_name);
+            }
+
+            
         }
     }
 }

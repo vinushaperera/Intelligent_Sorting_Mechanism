@@ -1,5 +1,6 @@
 ﻿using IntelligentSortingMechanism.Controllers;
 using IntelligentSortingMechanism.Models;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -62,15 +63,15 @@ namespace IntelligentSortingMechanism.Views
                 list.List_name = list_name_box.Text;
                 list.List_user_id = user_logged.User_id;
                 list.List_fronts = 0;
-            }
 
-            ListController controller = new ListController();
-            controller.AddNewList(list, tasks);
+                ListController controller = new ListController();
+                controller.AddNewList(list, tasks);
 
-            AllListsView lists_view = new AllListsView(user_logged);
-            lists_view.Activate();
-            lists_view.Show();
-            this.Close();
+                AllListsView lists_view = new AllListsView(user_logged);
+                lists_view.Activate();
+                lists_view.Show();
+                this.Close();
+            }            
         }
 
         private void add_task_btn_Click(object sender, RoutedEventArgs e)
@@ -125,6 +126,34 @@ namespace IntelligentSortingMechanism.Views
             all_view.Activate();
             all_view.Show();
             this.Close();
+        }
+
+        private void import_list_btn_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openBrowser = new OpenFileDialog();
+            openBrowser.Title = "Select the Excel file";
+            openBrowser.DefaultExt = "xlsx";
+            openBrowser.CheckFileExists = true;
+            openBrowser.CheckPathExists = true;
+            openBrowser.Multiselect = false;
+
+            string filename = "";
+
+            if (openBrowser.ShowDialog() == true)
+            {
+                filename = openBrowser.FileName;
+            }
+
+            ListController controller = new ListController();
+            List<TaskModel> import_list = controller.ReadExcelFile(filename);
+
+            foreach (var item in import_list)
+            {
+                item.Task_front = 0;
+                item.Task_list_id = 0;
+                item.Task_sorted_order = 0;
+                tasks.Add(item);
+            }
         }
     }
 }

@@ -11,45 +11,6 @@ namespace IntelligentSortingMechanism.Controllers
     {
         List<TaskModel> ex_tasks;
 
-        public void TestSort()
-        {
-            TaskModel task1 = new TaskModel(0, "Test 1", new DateTime(2018, 6, 30), 5, "link", 0, 0, 0);
-            TaskModel task2 = new TaskModel(0, "Test 2", new DateTime(2018, 5, 30), 6, "link", 0, 0, 0);
-            TaskModel task3 = new TaskModel(0, "Test 3", new DateTime(2018, 5, 30), 7, "link", 0, 0, 0);
-            TaskModel task4 = new TaskModel(0, "Test 4", new DateTime(2018, 5, 30), 1, "link", 0, 0, 0);
-            TaskModel task5 = new TaskModel(0, "Test 5", new DateTime(2018, 5, 30), 2, "link", 0, 0, 0);
-            TaskModel task6 = new TaskModel(0, "Test 6", new DateTime(2018, 5, 30), 3, "link", 0, 0, 0);
-
-            ex_tasks = new List<TaskModel>();
-            ex_tasks.Add(task1);
-            ex_tasks.Add(task2);
-            ex_tasks.Add(task3);
-            ex_tasks.Add(task4);
-            ex_tasks.Add(task5);
-            ex_tasks.Add(task6);
-
-            //InitSorting(ex_tasks);
-            //Dictionary<int, List<TaskModel>> list = NonDominatedSorting(ex_tasks);
-
-            //foreach (var item in list)
-            //{
-            //    Console.WriteLine("Front No : " + item.Key);
-
-            //    foreach (var list_item in item.Value)
-            //    {
-            //        Console.WriteLine(list_item.Task_desc + " = Priority : " + list_item.Task_priority + " Deadline : " + list_item.Rem_days);
-            //    }
-            //}
-
-            List<TaskModel> list = RemainingDaysCalc(ex_tasks);
-
-            foreach (var item in list)
-            {
-                Console.WriteLine("Task Days : " + item.Rem_days);
-            }
-
-        }
-
         public Dictionary<int, List<TaskModel>> SortingHandler(List<TaskModel> tasks)
         {            
             tasks = RemainingDaysCalc(tasks);
@@ -156,8 +117,13 @@ namespace IntelligentSortingMechanism.Controllers
                             else if (score < 0)
                             {
                                 nondominated = false;
-                            }
+                            }                          
 
+                        }
+
+                        if (nondominated)
+                        {
+                            break;
                         }
                     }
 
