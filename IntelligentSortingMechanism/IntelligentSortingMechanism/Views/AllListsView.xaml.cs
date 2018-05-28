@@ -108,6 +108,24 @@ namespace IntelligentSortingMechanism.Views
 
         private void edit_btn_Click(object sender, RoutedEventArgs e)
         {
+            ListModel edit_list = all_lists_grid.SelectedItem as ListModel;
+
+            EditListView edit_list_view = new EditListView();
+
+            if (edit_list != null)
+            {
+                if (edit_list_view.ShowDialog() == true)
+                {
+                    if (!string.IsNullOrWhiteSpace(edit_list_view.ResponseText))
+                    {
+                        edit_list.List_name = edit_list_view.ResponseText;
+                        ListController controller = new ListController();
+                        controller.EditList(edit_list);
+                    }
+                }
+            }
+
+            
 
         }
     }

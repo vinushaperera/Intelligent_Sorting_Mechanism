@@ -4,6 +4,7 @@ using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,7 +22,7 @@ namespace IntelligentSortingMechanism.Views
     /// <summary>
     /// Interaction logic for NewListView.xaml
     /// </summary>
-    public partial class NewListView : Window
+    public partial class NewListView : Window, INotifyPropertyChanged
     {
 
         #region Variables and Properties
@@ -29,6 +30,21 @@ namespace IntelligentSortingMechanism.Views
         private UserModel user_logged = new UserModel();
         private ListModel list;
         private static ObservableCollection<TaskModel> tasks;
+        private string error_txt;
+
+        public string Error_txt
+        {
+            get
+            {
+                return error_txt;
+            }
+
+            set
+            {
+                this.error_txt = value;
+                OnPropertyChanged("Error_txt");
+            }
+        }
 
         public static ObservableCollection<TaskModel> NewTasks
         {
@@ -56,8 +72,13 @@ namespace IntelligentSortingMechanism.Views
 
         private void done_btn_Click(object sender, RoutedEventArgs e)
         {
-            //Check if there are enough items
-            
+
+            if(tasks.Count <= 2)
+            {
+                Error_txt = "There should be at least 3 tasks in order to create a list!";
+                return;
+            }
+                        
             if (!string.IsNullOrWhiteSpace(list_name_box.Text))
             {
                 list.List_name = list_name_box.Text;
@@ -71,6 +92,11 @@ namespace IntelligentSortingMechanism.Views
                 lists_view.Activate();
                 lists_view.Show();
                 this.Close();
+            }
+            else
+            {
+                Error_txt = "List name cannot be empty!";
+                return;
             }            
         }
 
@@ -87,7 +113,25 @@ namespace IntelligentSortingMechanism.Views
 
             if(task != null)
             {
+                EditTaskView edit_view = new EditTaskView();
 
+                edit_view.DescriptionText = task.Task_desc;
+                edit_view.DeadlineText = task.Task_deadline;
+                edit_view.PriorityText = task.Priority_Txt;
+                edit_view.LinkIDText = task.Task_link_id;
+
+                if (edit_view.ShowDialog() == true)
+                {
+                    tasks.Remove(task);
+
+                    task.Task_desc = edit_view.DescriptionText;
+                    task.Task_deadline = edit_view.DeadlineText;
+                    task.Task_priority = Convert.ToInt32(edit_view.PriorityText);
+                    task.Task_link_id = edit_view.LinkIDText;
+
+
+                    tasks.Add(task);
+                }
             }
         }
 
@@ -155,5 +199,17 @@ namespace IntelligentSortingMechanism.Views
                 tasks.Add(item);
             }
         }
+
+        #region NotifyProperty
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        #endregion
     }
 }

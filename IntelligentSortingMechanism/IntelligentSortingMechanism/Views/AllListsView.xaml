@@ -5,21 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IntelligentSortingMechanism.Views"
         mc:Ignorable="d"
-        Title="AllListsView" Height="433.388" Width="460">
+        Title="AllListsView" Height="433.388" Width="600">
     <Grid>
-        <DataGrid x:Name="all_lists_grid" AutoGenerateColumns="False" SelectionMode="Single" CanUserSortColumns="False" CanUserAddRows="False" IsReadOnly="True" ItemsSource="{Binding AllLists}" HorizontalAlignment="Left" Margin="30,73,0,0" VerticalAlignment="Top" Height="238" Width="297">
+        <DataGrid x:Name="all_lists_grid" AutoGenerateColumns="False" SelectionMode="Single" CanUserSortColumns="False" CanUserAddRows="False" IsReadOnly="True" ItemsSource="{Binding AllLists}" HorizontalAlignment="Left" Margin="30,73,0,0" VerticalAlignment="Top" Height="238" Width="428">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="List ID" Binding="{Binding List_id}"/>
                 <DataGridTextColumn Header="List Name" Binding="{Binding List_name}"/>
                 <DataGridTextColumn Header="Number of Fronts" Binding="{Binding List_fronts}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="new_list_btn" Content="New List" HorizontalAlignment="Left" Margin="354,124,0,0" VerticalAlignment="Top" Width="75" Click="new_list_btn_Click"/>
-        <Button x:Name="view_list_btn" Content="View List" HorizontalAlignment="Left" Margin="115,349,0,0" VerticalAlignment="Top" Width="75" Click="view_list_btn_Click"/>
-        <TextBlock x:Name="all_lists_header" HorizontalAlignment="Left" FontSize="18" Margin="202,25,0,0" TextWrapping="Wrap" Text="All Lists" VerticalAlignment="Top"/>
-        <Button x:Name="delete_list" Content="Delete List" HorizontalAlignment="Left" Margin="354,215,0,0" VerticalAlignment="Top" Width="75" Click="delete_list_Click"/>
-        <Button x:Name="exit_btn" Content="Exit" HorizontalAlignment="Left" Margin="260,349,0,0" VerticalAlignment="Top" Width="75" Click="exit_btn_Click"/>
-        <Button x:Name="edit_btn" Content="Edit List" HorizontalAlignment="Left" Margin="354,171,0,0" VerticalAlignment="Top" Width="75" Click="edit_btn_Click"/>
+        <Button x:Name="new_list_btn" Content="New List" HorizontalAlignment="Left" Margin="491,124,0,0" VerticalAlignment="Top" Width="75" Click="new_list_btn_Click"/>
+        <Button x:Name="view_list_btn" Content="View List" HorizontalAlignment="Left" Margin="190,349,0,0" VerticalAlignment="Top" Width="75" Click="view_list_btn_Click"/>
+        <TextBlock x:Name="all_lists_header" HorizontalAlignment="Left" FontSize="18" Margin="222,25,0,0" TextWrapping="Wrap" Text="Task Management" VerticalAlignment="Top"/>
+        <Button x:Name="delete_list" Content="Delete List" HorizontalAlignment="Left" Margin="491,215,0,0" VerticalAlignment="Top" Width="75" Click="delete_list_Click"/>
+        <Button x:Name="exit_btn" Content="Exit" HorizontalAlignment="Left" Margin="331,349,0,0" VerticalAlignment="Top" Width="75" Click="exit_btn_Click"/>
+        <Button x:Name="edit_btn" Content="Edit List" HorizontalAlignment="Left" Margin="491,171,0,0" VerticalAlignment="Top" Width="75" Click="edit_btn_Click"/>
 
     </Grid>
 </Window>

@@ -5,21 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IntelligentSortingMechanism.Views"
         mc:Ignorable="d"
-        Title="ListView" Height="460" Width="460">
+        Title="ListView" Height="460" Width="653">
     <Grid>
-        <DataGrid x:Name="list_tasks_grid" AutoGenerateColumns="False" CanUserAddRows="False" CanUserSortColumns="False" IsReadOnly="True" ItemsSource="{Binding Tasks_List}" HorizontalAlignment="Left" Margin="28,75,0,0" VerticalAlignment="Top" Height="225" Width="401">
+        <DataGrid x:Name="list_tasks_grid" AutoGenerateColumns="False" CanUserAddRows="False" CanUserSortColumns="False" IsReadOnly="True" SelectionMode="Single" ItemsSource="{Binding Tasks_List}" HorizontalAlignment="Left" Margin="28,75,0,0" VerticalAlignment="Top" Height="258" Width="496">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="List ID" Binding="{Binding Task_list_id}"/>
                 <DataGridTextColumn Header="Task ID" Binding="{Binding Task_link_id}"/>
                 <DataGridTextColumn Header="Task Description" Binding="{Binding Task_desc}"/>
                 <DataGridTextColumn Header="Task Priority" Binding="{Binding Task_priority}"/>
-                <DataGridTextColumn Header="Task Deadline" Binding="{Binding Task_deadline}"/> 
+                <DataGridTextColumn Header="Task Deadline" Binding="{Binding Task_deadline}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="sort_btn" Content="Sort List" HorizontalAlignment="Left" Margin="61,337,0,0" VerticalAlignment="Top" Width="75" Click="sort_btn_Click"/>
-        <Button x:Name="back_btn" Content="Back" HorizontalAlignment="Left" Margin="325,337,0,0" VerticalAlignment="Top" Width="75" Click="back_btn_Click"/>
-        <TextBlock x:Name="list_name_txt" FontSize="18" HorizontalAlignment="Left" Margin="169,25,0,0" TextWrapping="Wrap" Text="List Name" VerticalAlignment="Top" Width="194"/>
-        <Button x:Name="export_list" Content="Export List" HorizontalAlignment="Left" Margin="191,337,0,0" VerticalAlignment="Top" Width="75" Click="export_list_Click"/>
+        <Button x:Name="sort_btn" Content="Sort List" HorizontalAlignment="Left" Margin="547,139,0,0" VerticalAlignment="Top" Width="75" Click="sort_btn_Click"/>
+        <Button x:Name="back_btn" Content="Back" HorizontalAlignment="Left" Margin="345,373,0,0" VerticalAlignment="Top" Width="75" Click="back_btn_Click"/>
+        <TextBlock x:Name="list_name_txt" FontSize="18" HorizontalAlignment="Left" Margin="282,25,0,0" TextWrapping="Wrap" Text="List Name" VerticalAlignment="Top" Width="194"/>
+        <Button x:Name="export_list" Content="Export List" HorizontalAlignment="Left" Margin="209,373,0,0" VerticalAlignment="Top" Width="75" Click="export_list_Click"/>
+        <Button x:Name="edit_btn" Content="Edit Task" HorizontalAlignment="Left" Margin="547,189,0,0" VerticalAlignment="Top" Width="75" Click="edit_btn_Click"/>
+        <Button x:Name="delete_btn" Content="Delete Task" HorizontalAlignment="Left" Margin="547,240,0,0" VerticalAlignment="Top" Width="75" Click="delete_btn_Click"/>
+        <Button x:Name="fronts_view" Content="Fronts View" HorizontalAlignment="Left" Margin="547,290,0,0" VerticalAlignment="Top" Width="75" Click="fronts_view_Click"/>
 
     </Grid>
 </Window>

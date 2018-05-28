@@ -13,7 +13,13 @@
         <TextBlock x:Name="add_task_header" FontSize="18" HorizontalAlignment="Left" Margin="191,17,0,0" TextWrapping="Wrap" Text="New Task" VerticalAlignment="Top"/>
         <TextBox x:Name="task_desc_box" HorizontalAlignment="Left" Height="23" Margin="220,78,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <DatePicker x:Name="task_deadline_date" HorizontalAlignment="Left" Margin="220,124,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="task_priority_combo" HorizontalAlignment="Left" Margin="220,173,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="task_priority_combo" Text="Select Priority" HorizontalAlignment="Left" Margin="220,173,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Name="cbi1">1</ComboBoxItem>
+            <ComboBoxItem Name="cbi2">2</ComboBoxItem>
+            <ComboBoxItem Name="cbi3">3</ComboBoxItem>
+            <ComboBoxItem Name="cbi4">4</ComboBoxItem>
+            <ComboBoxItem Name="cbi5">5</ComboBoxItem>
+        </ComboBox>
         <Button x:Name="back_btn" Content="Back" HorizontalAlignment="Left" Margin="253,299,0,0" VerticalAlignment="Top" Width="75" Click="back_btn_Click"/>
         <Button x:Name="add_task_btn" Content="Add Task" HorizontalAlignment="Left" Margin="132,299,0,0" VerticalAlignment="Top" Width="75" Click="add_task_btn_Click"/>
         <Label x:Name="link_id_lbl" Content="Task Link ID" HorizontalAlignment="Left" Margin="86,223,0,0" VerticalAlignment="Top"/>

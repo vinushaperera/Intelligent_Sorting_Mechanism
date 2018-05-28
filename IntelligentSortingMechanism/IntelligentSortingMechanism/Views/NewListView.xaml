@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IntelligentSortingMechanism.Views"
         mc:Ignorable="d"
-        Title="NewListView" Height="460" Width="460">
+        Title="NewListView" Height="471" Width="460">
     <Grid>
         <Button x:Name="add_task_btn" Content="Add Task" HorizontalAlignment="Left" Margin="353,135,0,0" VerticalAlignment="Top" Width="75" Click="add_task_btn_Click"/>
         <Button x:Name="import_list_btn" Content="Import Tasks" HorizontalAlignment="Left" Margin="353,290,0,0" VerticalAlignment="Top" Width="75" Click="import_list_btn_Click"/>
-        <Button x:Name="back_btn" Content="Back" HorizontalAlignment="Left" Margin="250,384,0,0" VerticalAlignment="Top" Width="75" Click="back_btn_Click"/>
-        <Button x:Name="done_btn" Content="Done" HorizontalAlignment="Left" Margin="117,384,0,0" VerticalAlignment="Top" Width="75" Click="done_btn_Click"/>
+        <Button x:Name="back_btn" Content="Back" HorizontalAlignment="Left" Margin="250,399,0,0" VerticalAlignment="Top" Width="75" Click="back_btn_Click"/>
+        <Button x:Name="done_btn" Content="Done" HorizontalAlignment="Left" Margin="117,399,0,0" VerticalAlignment="Top" Width="75" Click="done_btn_Click"/>
         <DataGrid x:Name="task_list_grid" AutoGenerateColumns="False" CanUserAddRows="False" CanUserSortColumns="False" IsReadOnly="True" SelectionMode="Single" HorizontalAlignment="Left" Margin="26,101,0,0" VerticalAlignment="Top" Height="245" Width="299" ItemsSource="{Binding NewTasks}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Task ID" Binding="{Binding Task_link_id}"/>
@@ -24,6 +24,7 @@
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="192,10,0,0" TextWrapping="Wrap" FontSize="18" Text="New List" VerticalAlignment="Top"/>
         <Button x:Name="edit_task_btn" Content="Edit Task" HorizontalAlignment="Left" Margin="353,174,0,0" VerticalAlignment="Top" Width="75" Click="edit_task_btn_Click"/>
         <Button x:Name="delete_task_btn" Content="Delete Task" HorizontalAlignment="Left" Margin="353,213,0,0" VerticalAlignment="Top" Width="75" Click="delete_task_btn_Click"/>
+        <TextBlock x:Name="err_msg_txt" Foreground="Red" HorizontalAlignment="Left" Margin="60,363,0,0" TextWrapping="Wrap" Text="{Binding Error_txt}" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

@@ -69,6 +69,15 @@
     <Compile Include="Views\AllListsView.xaml.cs">
       <DependentUpon>AllListsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\EditListView.xaml.cs">
+      <DependentUpon>EditListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditTaskView.xaml.cs">
+      <DependentUpon>EditTaskView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrontsView.xaml.cs">
+      <DependentUpon>FrontsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ListView.xaml.cs">
       <DependentUpon>ListView.xaml</DependentUpon>
     </Compile>
@@ -95,6 +104,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AllListsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditTaskView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FrontsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

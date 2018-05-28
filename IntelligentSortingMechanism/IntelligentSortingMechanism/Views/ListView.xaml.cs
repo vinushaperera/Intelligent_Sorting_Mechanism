@@ -114,5 +114,67 @@ namespace IntelligentSortingMechanism.Views
 
             
         }
+
+        private void delete_btn_Click(object sender, RoutedEventArgs e)
+        {
+            TaskModel delete_task = list_tasks_grid.SelectedItem as TaskModel;
+
+            if(delete_task != null)
+            {
+                ListController controller = new ListController();
+                bool result = controller.DeleteTask(delete_task.Task_id);
+
+                if (result)
+                {
+                    tasks_list.Remove(delete_task);
+                }
+            }
+        }
+
+        private void edit_btn_Click(object sender, RoutedEventArgs e)
+        {
+            TaskModel update_task = list_tasks_grid.SelectedItem as TaskModel;
+
+            if (update_task != null)
+            {
+                EditTaskView edit_view = new EditTaskView();
+
+                edit_view.DescriptionText = update_task.Task_desc;
+                edit_view.DeadlineText = update_task.Task_deadline;
+                edit_view.PriorityText = update_task.Priority_Txt;
+                edit_view.LinkIDText = update_task.Task_link_id;
+
+                if (edit_view.ShowDialog() == true)
+                {
+                    ListController controller = new ListController();
+
+                    tasks_list.Remove(update_task);
+
+                    update_task.Task_desc = edit_view.DescriptionText;
+                    update_task.Task_deadline = edit_view.DeadlineText;
+                    update_task.Task_priority = Convert.ToInt32(edit_view.PriorityText);
+                    update_task.Task_link_id = edit_view.LinkIDText;
+
+                    update_task.Task_sorted_order = 0;
+                    update_task.Task_front = 0;
+
+                    bool result = controller.EditTask(update_task);
+
+                    if (result)
+                    {                        
+                        tasks_list.Add(update_task);
+                    }
+                }                
+            }
+        }
+
+        private void fronts_view_Click(object sender, RoutedEventArgs e)
+        {
+            List<TaskModel> list = new List<TaskModel>(tasks_list);
+
+            FrontsView fronts_view = new FrontsView(user_logged, viewed_list, list);
+            fronts_view.Activate();
+            fronts_view.Show();
+        }
     }
 }

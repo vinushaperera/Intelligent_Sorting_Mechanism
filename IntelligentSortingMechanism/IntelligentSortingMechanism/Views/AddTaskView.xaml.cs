@@ -38,7 +38,7 @@ namespace IntelligentSortingMechanism.Views
             TaskModel task = new TaskModel();
 
             task.Task_desc = task_desc_box.Text;
-            task.Task_priority = 1;
+            task.Task_priority = Convert.ToInt32(task_priority_combo.Text);
             task.Task_deadline = (DateTime)task_deadline_date.SelectedDate;
             task.Task_link_id = link_id_box.Text;
 

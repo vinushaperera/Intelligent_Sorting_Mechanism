@@ -40,12 +40,59 @@ namespace IntelligentSortingMechanism.Controllers
             }
         }
 
+        public bool EditList(ListModel list)
+        {
+            ListModel db_list = new ListModel();
+            int status = db_list.UpdateList(list.List_id, list.List_name, list.List_user_id, list.List_fronts, list.New_List);
+
+            if(status != 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public bool DeleteList(int list_id)
         {
             ListModel list = new ListModel();
             int result = list.DeleteList(list_id);
 
             if(result > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool EditTask(TaskModel task)
+        {
+            TaskModel db_task = new TaskModel();
+            string deadline = task.Task_deadline.ToString();
+
+            int status = db_task.UpdateTask(task.Task_id, task.Task_desc, deadline, task.Task_priority, task.Task_link_id, task.Task_list_id, task.Task_sorted_order, task.Task_front);
+
+            if (status != 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool DeleteTask(int task_id)
+        {
+            TaskModel task = new TaskModel();
+            int result = task.DeleteTask(task_id);
+
+            if (result > 0)
             {
                 return true;
             }

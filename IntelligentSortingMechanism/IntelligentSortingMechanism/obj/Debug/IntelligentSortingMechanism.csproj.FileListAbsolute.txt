@@ -53,3 +53,9 @@ D:\Coursework\4th Year\FYP\Final Implementation\Intelligent_Sorting_Mechanism\In
 D:\Coursework\4th Year\FYP\Final Implementation\Intelligent_Sorting_Mechanism\IntelligentSortingMechanism\IntelligentSortingMechanism\obj\Debug\Views\AddTaskView.g.cs
 D:\Coursework\4th Year\FYP\Final Implementation\Intelligent_Sorting_Mechanism\IntelligentSortingMechanism\IntelligentSortingMechanism\obj\Debug\Views\AddTaskView.baml
 D:\Coursework\4th Year\FYP\Final Implementation\Intelligent_Sorting_Mechanism\IntelligentSortingMechanism\IntelligentSortingMechanism\obj\Debug\IntelligentSortingMechanism.csproj.ResolveComReference.cache
+D:\Coursework\4th Year\FYP\Final Implementation\Intelligent_Sorting_Mechanism\IntelligentSortingMechanism\IntelligentSortingMechanism\obj\Debug\Views\EditListView.g.cs
+D:\Coursework\4th Year\FYP\Final Implementation\Intelligent_Sorting_Mechanism\IntelligentSortingMechanism\IntelligentSortingMechanism\obj\Debug\Views\EditTaskView.g.cs
+D:\Coursework\4th Year\FYP\Final Implementation\Intelligent_Sorting_Mechanism\IntelligentSortingMechanism\IntelligentSortingMechanism\obj\Debug\Views\EditListView.baml
+D:\Coursework\4th Year\FYP\Final Implementation\Intelligent_Sorting_Mechanism\IntelligentSortingMechanism\IntelligentSortingMechanism\obj\Debug\Views\EditTaskView.baml
+D:\Coursework\4th Year\FYP\Final Implementation\Intelligent_Sorting_Mechanism\IntelligentSortingMechanism\IntelligentSortingMechanism\obj\Debug\Views\FrontsView.g.cs
+D:\Coursework\4th Year\FYP\Final Implementation\Intelligent_Sorting_Mechanism\IntelligentSortingMechanism\IntelligentSortingMechanism\obj\Debug\Views\FrontsView.baml
