@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,12 +18,25 @@ namespace IntelligentSortingMechanism.Views
     /// <summary>
     /// Interaction logic for EditTaskView.xaml
     /// </summary>
-    public partial class EditTaskView : Window
+    public partial class EditTaskView : Window, INotifyPropertyChanged
     {
-        public EditTaskView()
+        #region Variables and Properties
+
+        private string error_txt;
+
+        public string Error_txt
         {
-            InitializeComponent();
-        }
+            get
+            {
+                return error_txt;
+            }
+
+            set
+            {
+                error_txt = value;
+                OnPropertyChanged("Error_txt");
+            }
+        }        
 
         public string DescriptionText
         {
@@ -48,14 +62,49 @@ namespace IntelligentSortingMechanism.Views
             set { link_box.Text = value; }
         }
 
+        #endregion
+
+        #region Constructors
+
+        public EditTaskView()
+        {
+            InitializeComponent();
+            this.DataContext = this;
+        }
+
+        #endregion
+
+        #region Helper Methods
+
         private void done_btn_Click(object sender, RoutedEventArgs e)
         {
-            DialogResult = true;
+            if(!(string.IsNullOrWhiteSpace(desc_box.Text) || string.IsNullOrWhiteSpace(priority_box.Text) || string.IsNullOrWhiteSpace(link_box.Text)))
+            {
+                DialogResult = true;
+            }
+            else
+            {
+                Error_txt = "All the fields have to be filled!";
+            }            
         }
 
         private void cancel_btn_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
+
+        #endregion
+
+        #region NotifyProperty
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        #endregion
     }
 }

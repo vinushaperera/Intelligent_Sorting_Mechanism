@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IntelligentSortingMechanism.Views"
         mc:Ignorable="d"
-        Title="EditTaskView" Height="300" Width="357.931">
+        Title="EditTaskView" Height="320.69" Width="357.931">
     <Grid>
         <TextBlock x:Name="edit_task_header" FontSize="18" HorizontalAlignment="Left" Margin="146,10,0,0" TextWrapping="Wrap" Text="Edit Task" VerticalAlignment="Top"/>
         <TextBlock x:Name="task_desc_txt" HorizontalAlignment="Left" Margin="68,64,0,0" TextWrapping="Wrap" Text="Task Description : " VerticalAlignment="Top"/>
@@ -22,8 +22,9 @@
         <DatePicker x:Name="date_box" HorizontalAlignment="Left" Margin="170,133,0,0" VerticalAlignment="Top" Width="120"/>
         <TextBlock x:Name="link_txt" HorizontalAlignment="Left" Margin="68,175,0,0" TextWrapping="Wrap" Text="Task Link ID : " VerticalAlignment="Top"/>
         <TextBox x:Name="link_box" HorizontalAlignment="Left" Height="23" Margin="170,174,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="done_btn" Content="Done" HorizontalAlignment="Left" Margin="76,229,0,0" VerticalAlignment="Top" Width="75" Click="done_btn_Click"/>
-        <Button x:Name="cancel_btn" Content="Cancel" HorizontalAlignment="Left" Margin="198,229,0,0" VerticalAlignment="Top" Width="75" Click="cancel_btn_Click"/>
+        <Button x:Name="done_btn" Content="Done" HorizontalAlignment="Left" Margin="77,251,0,0" VerticalAlignment="Top" Width="75" Click="done_btn_Click"/>
+        <Button x:Name="cancel_btn" Content="Cancel" HorizontalAlignment="Left" Margin="199,251,0,0" VerticalAlignment="Top" Width="75" Click="cancel_btn_Click"/>
+        <TextBlock x:Name="error_txt_box" HorizontalAlignment="Left" Margin="77,214,0,0" TextWrapping="Wrap" Foreground="Red" Text="{Binding Error_txt}" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
