@@ -5,23 +5,54 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IntelligentSortingMechanism.Views"
         mc:Ignorable="d"
+        WindowState="Maximized"
         Title="FrontsView" Height="400" Width="600">
     <Grid>
-        <Button x:Name="back_btn" Content="Back" HorizontalAlignment="Left" Margin="267,329,0,0" VerticalAlignment="Top" Width="75" Click="back_btn_Click"/>
-        <TextBlock x:Name="list_name_header" HorizontalAlignment="Left" Margin="267,10,0,0" TextWrapping="Wrap" Text="List Name" FontSize="18" VerticalAlignment="Top"/>
-        <DataGrid x:Name="tasks_list_grid" ItemsSource="{Binding Grid_Tasks}" AutoGenerateColumns="False" SelectionMode="Single" CanUserSortColumns="False" CanUserAddRows="False" IsReadOnly="True" HorizontalAlignment="Left" Margin="28,96,0,0" VerticalAlignment="Top" Height="214" Width="535">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Task ID" Binding="{Binding Task_id}"/>
-                <DataGridTextColumn Header="Task Description" Binding="{Binding Task_desc}"/>
-                <DataGridTextColumn Header="Task Priority" Binding="{Binding Task_priority}"/>
-                <DataGridTextColumn Header="Task Deadline" Binding="{Binding Task_deadline}"/>
-                <DataGridTextColumn Header="Sorted Order" Binding="{Binding Task_sorted_order}"/>
-                <DataGridTextColumn Header="Task Front" Binding="{Binding Task_front}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <TextBlock x:Name="front_txt" HorizontalAlignment="Left" Margin="396,56,0,0" TextWrapping="Wrap" Text="Select a Front : " VerticalAlignment="Top"/>
-        <ComboBox x:Name="front_combo" HorizontalAlignment="Left" SelectionChanged="front_combo_SelectionChanged" Margin="483,54,0,0" VerticalAlignment="Top" Width="80"/>
-        <TextBlock x:Name="front_selected_txt" FontSize="16" HorizontalAlignment="Left" Margin="28,59,0,0" TextWrapping="Wrap" Text="{Binding Selected_Front}" VerticalAlignment="Top"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" x:Name="list_name_header" HorizontalAlignment="Center" Margin="0,30,0,0" TextWrapping="Wrap" Text="List Name" FontSize="40" VerticalAlignment="Top"/>
+
+            <Grid Margin="0,20,0,0" Grid.Row="1">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0" x:Name="front_selected_txt" FontSize="22" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="{Binding Selected_Front}" VerticalAlignment="Top"/>
+
+                <TextBlock Grid.Column="1" x:Name="front_txt" HorizontalAlignment="Right" Margin="0,0,110,0" TextWrapping="Wrap" Text="Select a Front : " VerticalAlignment="Top" FontSize="16"/>
+                <ComboBox Grid.Column="1" x:Name="front_combo" HorizontalAlignment="Right" SelectionChanged="front_combo_SelectionChanged" Margin="0,0,0,0" VerticalAlignment="Top" Width="100"/>
+
+            </Grid>
+
+
+            <DataGrid Grid.Row="2" x:Name="tasks_list_grid" FontSize="16" ItemsSource="{Binding Grid_Tasks}" AutoGenerateColumns="False" SelectionMode="Single" CanUserSortColumns="False" CanUserAddRows="False" IsReadOnly="True" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Stretch" Height="500" Width="950">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Task ID" FontSize="16" Binding="{Binding Task_id}"/>
+                    <DataGridTextColumn Header="Task Description" FontSize="16" Binding="{Binding Task_desc}"/>
+                    <DataGridTextColumn Header="Task Priority" FontSize="16" Binding="{Binding Task_priority}"/>
+                    <DataGridTextColumn Header="Task Deadline" FontSize="16" Binding="{Binding Task_deadline}"/>
+                    <DataGridTextColumn Header="Sorted Order" FontSize="16" Binding="{Binding Task_sorted_order}"/>
+                    <DataGridTextColumn Header="Task Front" FontSize="16" Binding="{Binding Task_front}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Button Grid.Row="3" x:Name="back_btn" Content="Back" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" Width="100" Height="35" FontSize="16" Click="back_btn_Click"/>
+
+        </Grid>      
 
     </Grid>
 </Window>

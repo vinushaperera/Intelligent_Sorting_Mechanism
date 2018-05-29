@@ -78,6 +78,8 @@ namespace IntelligentSortingMechanism.Controllers
 
         public Dictionary<int, List<TaskModel>> NonDominatedSorting(List<TaskModel> tasks)
         {
+           
+
             int fronts_identified = 0;
 
             Dictionary<int,List<TaskModel>> fronts_list = new Dictionary<int, List<TaskModel>>();
@@ -138,6 +140,7 @@ namespace IntelligentSortingMechanism.Controllers
                 }
 
             }
+            
 
             return fronts_list;
         } 

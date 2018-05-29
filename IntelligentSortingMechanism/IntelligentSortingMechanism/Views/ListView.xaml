@@ -5,23 +5,68 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IntelligentSortingMechanism.Views"
         mc:Ignorable="d"
+        WindowState="Maximized"
         Title="ListView" Height="460" Width="653">
     <Grid>
-        <DataGrid x:Name="list_tasks_grid" AutoGenerateColumns="False" CanUserAddRows="False" CanUserSortColumns="False" IsReadOnly="True" SelectionMode="Single" ItemsSource="{Binding Tasks_List}" HorizontalAlignment="Left" Margin="28,75,0,0" VerticalAlignment="Top" Height="258" Width="496">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Task ID" Binding="{Binding Task_link_id}"/>
-                <DataGridTextColumn Header="Task Description" Binding="{Binding Task_desc}"/>
-                <DataGridTextColumn Header="Task Priority" Binding="{Binding Task_priority}"/>
-                <DataGridTextColumn Header="Task Deadline" Binding="{Binding Task_deadline}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <Button x:Name="sort_btn" Content="Sort List" HorizontalAlignment="Left" Margin="547,139,0,0" VerticalAlignment="Top" Width="75" Click="sort_btn_Click"/>
-        <Button x:Name="back_btn" Content="Back" HorizontalAlignment="Left" Margin="345,373,0,0" VerticalAlignment="Top" Width="75" Click="back_btn_Click"/>
-        <TextBlock x:Name="list_name_txt" FontSize="18" HorizontalAlignment="Left" Margin="282,25,0,0" TextWrapping="Wrap" Text="List Name" VerticalAlignment="Top" Width="194"/>
-        <Button x:Name="export_list" Content="Export List" HorizontalAlignment="Left" Margin="209,373,0,0" VerticalAlignment="Top" Width="75" Click="export_list_Click"/>
-        <Button x:Name="edit_btn" Content="Edit Task" HorizontalAlignment="Left" Margin="547,189,0,0" VerticalAlignment="Top" Width="75" Click="edit_btn_Click"/>
-        <Button x:Name="delete_btn" Content="Delete Task" HorizontalAlignment="Left" Margin="547,240,0,0" VerticalAlignment="Top" Width="75" Click="delete_btn_Click"/>
-        <Button x:Name="fronts_view" Content="Fronts View" HorizontalAlignment="Left" Margin="547,290,0,0" VerticalAlignment="Top" Width="75" Click="fronts_view_Click"/>
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" x:Name="list_name_txt" FontSize="40" HorizontalAlignment="Center" Margin="0,60,0,0" TextWrapping="Wrap" Text="List Name" VerticalAlignment="Top" Width="194"/>
+
+            <DataGrid Grid.Row="1" x:Name="list_tasks_grid" FontSize="16" AutoGenerateColumns="False" CanUserAddRows="False" CanUserSortColumns="False" IsReadOnly="True" SelectionMode="Single" ItemsSource="{Binding Tasks_List}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Stretch" Height="500" Width="900">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Task ID" FontSize="16" Binding="{Binding Task_link_id}"/>
+                    <DataGridTextColumn Header="Task Description" FontSize="16" Binding="{Binding Task_desc}"/>
+                    <DataGridTextColumn Header="Task Priority" FontSize="16" Binding="{Binding Task_priority}"/>
+                    <DataGridTextColumn Header="Task Deadline" FontSize="16" Binding="{Binding Task_deadline}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Grid Grid.Row="2" Margin="0,60,0,0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="export_list" Grid.Column="1" Content="Export List" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Height="35" FontSize="16" Click="export_list_Click"/>
+                <Button x:Name="back_btn" Grid.Column="2" Content="Back" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Height="35" FontSize="16" Click="back_btn_Click"/>
+            </Grid>
+
+        </Grid>
+
+        <Grid Grid.Column="2">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+
+            <Button x:Name="sort_btn" Grid.Row="1" Content="Sort List" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Height="35" FontSize="16" Click="sort_btn_Click"/>
+            <Button x:Name="edit_btn" Grid.Row="2" Content="Edit Task" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Height="35" FontSize="16" Click="edit_btn_Click"/>
+            <Button x:Name="delete_btn" Grid.Row="3" Content="Delete Task" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Height="35" FontSize="16" Click="delete_btn_Click"/>
+            <Button x:Name="fronts_view" Grid.Row="4" Content="Fronts View" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Height="35" FontSize="16" Click="fronts_view_Click"/>
+
+        </Grid>
+        
+        
     </Grid>
 </Window>

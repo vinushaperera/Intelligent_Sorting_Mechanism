@@ -5,25 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IntelligentSortingMechanism.Views"
         mc:Ignorable="d"
-        Title="EditTaskView" Height="320.69" Width="357.931">
+        Title="EditTaskView" Height="412.105" Width="529.703">
     <Grid>
-        <TextBlock x:Name="edit_task_header" FontSize="18" HorizontalAlignment="Left" Margin="146,10,0,0" TextWrapping="Wrap" Text="Edit Task" VerticalAlignment="Top"/>
-        <TextBlock x:Name="task_desc_txt" HorizontalAlignment="Left" Margin="68,64,0,0" TextWrapping="Wrap" Text="Task Description : " VerticalAlignment="Top"/>
-        <TextBox x:Name="desc_box" HorizontalAlignment="Left" Height="23" Margin="170,63,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBlock x:Name="priority_txt" HorizontalAlignment="Left" Margin="68,101,0,0" TextWrapping="Wrap" Text="Task Priority : " VerticalAlignment="Top"/>
-        <ComboBox x:Name="priority_box" HorizontalAlignment="Left" Margin="170,95,0,0" VerticalAlignment="Top" Width="120">
+        <TextBlock x:Name="edit_task_header" FontSize="22" HorizontalAlignment="Center" Margin="220,21,208,0" TextWrapping="Wrap" Text="Edit Task" VerticalAlignment="Top" Width="94"/>
+        <TextBlock x:Name="task_desc_txt" FontSize="16" HorizontalAlignment="Left" Margin="91,90,0,0" TextWrapping="Wrap" Text="Task Description : " VerticalAlignment="Top"/>
+        <TextBox x:Name="desc_box" FontSize="16" HorizontalAlignment="Left" Height="23" Margin="248,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="201"/>
+        <TextBlock x:Name="priority_txt"  FontSize="16" HorizontalAlignment="Left" Margin="121,135,0,0" TextWrapping="Wrap" Text="Task Priority : " VerticalAlignment="Top"/>
+        <ComboBox x:Name="priority_box" HorizontalAlignment="Left" Margin="248,134,0,0" VerticalAlignment="Top" Width="201">
             <ComboBoxItem Name="cbi1">1</ComboBoxItem>
             <ComboBoxItem Name="cbi2">2</ComboBoxItem>
             <ComboBoxItem Name="cbi3">3</ComboBoxItem>
             <ComboBoxItem Name="cbi4">4</ComboBoxItem>
             <ComboBoxItem Name="cbi5">5</ComboBoxItem>
         </ComboBox>
-        <TextBlock x:Name="date_txt" HorizontalAlignment="Left" Margin="68,137,0,0" TextWrapping="Wrap" Text="Task Deadline : " VerticalAlignment="Top"/>
-        <DatePicker x:Name="date_box" HorizontalAlignment="Left" Margin="170,133,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBlock x:Name="link_txt" HorizontalAlignment="Left" Margin="68,175,0,0" TextWrapping="Wrap" Text="Task Link ID : " VerticalAlignment="Top"/>
-        <TextBox x:Name="link_box" HorizontalAlignment="Left" Height="23" Margin="170,174,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="done_btn" Content="Done" HorizontalAlignment="Left" Margin="77,251,0,0" VerticalAlignment="Top" Width="75" Click="done_btn_Click"/>
-        <Button x:Name="cancel_btn" Content="Cancel" HorizontalAlignment="Left" Margin="199,251,0,0" VerticalAlignment="Top" Width="75" Click="cancel_btn_Click"/>
+        <TextBlock x:Name="date_txt"  FontSize="16" HorizontalAlignment="Left" Margin="109,179,0,0" TextWrapping="Wrap" Text="Task Deadline : " VerticalAlignment="Top"/>
+        <DatePicker x:Name="date_box" HorizontalAlignment="Left" Margin="248,179,0,0" VerticalAlignment="Top" Width="201"/>
+        <TextBlock x:Name="link_txt"  FontSize="16" HorizontalAlignment="Left" Margin="123,223,0,0" TextWrapping="Wrap" Text="Task Link ID : " VerticalAlignment="Top"/>
+        <TextBox x:Name="link_box" FontSize="16" HorizontalAlignment="Left" Height="23" Margin="248,223,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="201"/>
+        <Button x:Name="done_btn" Content="Done" HorizontalAlignment="Left" Margin="149,301,0,0" VerticalAlignment="Top" Width="100" Height="35" FontSize="16" Click="done_btn_Click"/>
+        <Button x:Name="cancel_btn" Content="Cancel" HorizontalAlignment="Left" Margin="286,301,0,0" VerticalAlignment="Top" Width="100" Height="35" FontSize="16" Click="cancel_btn_Click"/>
         <TextBlock x:Name="error_txt_box" HorizontalAlignment="Left" Margin="77,214,0,0" TextWrapping="Wrap" Foreground="Red" Text="{Binding Error_txt}" VerticalAlignment="Top"/>
 
     </Grid>

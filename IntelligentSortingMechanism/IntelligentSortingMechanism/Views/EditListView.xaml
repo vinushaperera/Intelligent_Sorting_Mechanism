@@ -4,14 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IntelligentSortingMechanism.Views"
-        mc:Ignorable="d"
-        Title="EditListView" Height="186.206" Width="411.034">
+        mc:Ignorable="d"        
+        Title="EditListView" Height="266.744" Width="587.204">
     <Grid>
-        <TextBlock x:Name="list_name_txt" HorizontalAlignment="Left" Margin="23,69,0,0" TextWrapping="Wrap" Text="Enter a new name for the list : " VerticalAlignment="Top"/>
-        <TextBox x:Name="list_name_box" HorizontalAlignment="Left" Height="23" Margin="189,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
-        <Button x:Name="ok_btn" Content="Done" HorizontalAlignment="Left" Margin="102,118,0,0" VerticalAlignment="Top" Width="75" Click="ok_btn_Click"/>
-        <Button x:Name="cancel_btn" Content="Cancel" HorizontalAlignment="Left" Margin="222,118,0,0" VerticalAlignment="Top" Width="75" Click="cancel_btn_Click"/>
-        <TextBlock x:Name="edit_list_header" FontSize="18" HorizontalAlignment="Left" Margin="173,19,0,0" TextWrapping="Wrap" Text="Edit List" VerticalAlignment="Top"/>
+        <TextBlock x:Name="list_name_txt" HorizontalAlignment="Left" Margin="76,84,0,0" TextWrapping="Wrap" Text="Enter a new name for the list : " FontSize="16" VerticalAlignment="Top"/>
+        <TextBox x:Name="list_name_box" FontSize="16" HorizontalAlignment="Left" Height="23" Margin="310,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="191"/>
+        <Button x:Name="ok_btn" Content="Done" HorizontalAlignment="Left" Margin="183,152,0,0" VerticalAlignment="Top" Width="100" Height="35" FontSize="16" Click="ok_btn_Click"/>
+        <Button x:Name="cancel_btn" Content="Cancel" HorizontalAlignment="Left" Margin="321,152,0,0" VerticalAlignment="Top" Width="100" Height="35" FontSize="16" Click="cancel_btn_Click"/>
+        <TextBlock x:Name="edit_list_header" FontSize="24" HorizontalAlignment="Center" Margin="0,20,0,0" TextWrapping="Wrap" Text="Edit List" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
