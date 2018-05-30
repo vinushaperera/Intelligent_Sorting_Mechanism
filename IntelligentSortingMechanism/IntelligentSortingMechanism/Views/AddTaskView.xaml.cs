@@ -35,19 +35,22 @@ namespace IntelligentSortingMechanism.Views
 
         private void add_task_btn_Click(object sender, RoutedEventArgs e)
         {
-            TaskModel task = new TaskModel();
+            if(!string.IsNullOrWhiteSpace(task_desc_box.Text) && !string.IsNullOrWhiteSpace(task_priority_combo.Text) && !string.IsNullOrWhiteSpace(task_deadline_date.SelectedDate.ToString()) && !string.IsNullOrWhiteSpace(link_id_box.Text))
+            {
+                TaskModel task = new TaskModel();
 
-            task.Task_desc = task_desc_box.Text;
-            task.Task_priority = Convert.ToInt32(task_priority_combo.Text);
-            task.Task_deadline = (DateTime)task_deadline_date.SelectedDate;
-            task.Task_link_id = link_id_box.Text;
+                task.Task_desc = task_desc_box.Text;
+                task.Task_priority = Convert.ToInt32(task_priority_combo.Text);
+                task.Task_deadline = (DateTime)task_deadline_date.SelectedDate;
+                task.Task_link_id = link_id_box.Text;
 
-            task.Task_front = 0;            
-            task.Task_list_id = 0;
-            task.Task_sorted_order = 0;
+                task.Task_front = 0;
+                task.Task_list_id = 0;
+                task.Task_sorted_order = 0;
 
-            NewListView.NewTasks.Add(task);
-            this.Close();
+                NewListView.NewTasks.Add(task);
+                this.Close();
+            }            
         }
 
         private void back_btn_Click(object sender, RoutedEventArgs e)

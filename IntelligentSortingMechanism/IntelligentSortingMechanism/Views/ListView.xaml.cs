@@ -108,8 +108,12 @@ namespace IntelligentSortingMechanism.Views
             if(result == WinForms.DialogResult.OK)
             {
                 path = folderBrowser.SelectedPath;
-                ListController controller = new ListController();
-                controller.WriteExcel(new List<TaskModel>(tasks_list), path, viewed_list.List_name);
+
+                if (!string.IsNullOrWhiteSpace(path))
+                {
+                    ListController controller = new ListController();
+                    controller.WriteExcel(new List<TaskModel>(tasks_list), path, viewed_list.List_name);
+                }                
             }
 
             

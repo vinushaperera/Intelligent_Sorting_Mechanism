@@ -15,9 +15,54 @@ namespace IntelligentSortingMechanism.Controllers
         {            
             tasks = RemainingDaysCalc(tasks);
             tasks = InitSorting(tasks);
-            Dictionary<int, List<TaskModel>> final_list =  NonDominatedSorting(tasks);
 
-            return final_list;
+            List<TaskModel> due_list = SortingValidation(tasks);
+            int due_count = due_list.Count;
+
+            if (due_count != 0)
+            {
+                foreach (var item in due_list)
+                {
+                    tasks.Remove(item);
+                }
+
+                due_list = InitSorting(due_list);
+            }            
+
+            Dictionary<int, List<TaskModel>> final_list =  NonDominatedSorting(tasks);
+            Dictionary<int, List<TaskModel>> return_list = new Dictionary<int, List<TaskModel>>();
+
+            int list_fronts = final_list.Count;
+            int front_no = 0;
+
+            if (due_count != 0)
+            {
+                return_list.Add(front_no, due_list);
+                front_no++;
+            }
+
+            foreach (var item in final_list)
+            {
+                return_list.Add(front_no, item.Value);
+                front_no++;
+            }
+
+            return return_list;
+        }
+
+        public List<TaskModel> SortingValidation(List<TaskModel> tasks)
+        {
+            List<TaskModel> new_list = new List<TaskModel>();
+
+            foreach (TaskModel item in tasks)
+            {
+                if(item.Rem_days <= 0)
+                {
+                    new_list.Add(item);
+                }
+            }
+
+            return new_list;
         }
 
         public List<TaskModel> RemainingDaysCalc(List<TaskModel> tasks)

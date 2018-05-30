@@ -22,9 +22,9 @@
         <DatePicker x:Name="date_box" HorizontalAlignment="Left" Margin="248,179,0,0" VerticalAlignment="Top" Width="201"/>
         <TextBlock x:Name="link_txt"  FontSize="16" HorizontalAlignment="Left" Margin="123,223,0,0" TextWrapping="Wrap" Text="Task Link ID : " VerticalAlignment="Top"/>
         <TextBox x:Name="link_box" FontSize="16" HorizontalAlignment="Left" Height="23" Margin="248,223,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="201"/>
-        <Button x:Name="done_btn" Content="Done" HorizontalAlignment="Left" Margin="149,301,0,0" VerticalAlignment="Top" Width="100" Height="35" FontSize="16" Click="done_btn_Click"/>
-        <Button x:Name="cancel_btn" Content="Cancel" HorizontalAlignment="Left" Margin="286,301,0,0" VerticalAlignment="Top" Width="100" Height="35" FontSize="16" Click="cancel_btn_Click"/>
-        <TextBlock x:Name="error_txt_box" HorizontalAlignment="Left" Margin="77,214,0,0" TextWrapping="Wrap" Foreground="Red" Text="{Binding Error_txt}" VerticalAlignment="Top"/>
+        <Button x:Name="done_btn" Content="Done" HorizontalAlignment="Left" Margin="149,315,0,0" VerticalAlignment="Top" Width="100" Height="35" FontSize="16" Click="done_btn_Click"/>
+        <Button x:Name="cancel_btn" Content="Cancel" HorizontalAlignment="Left" Margin="286,315,0,0" VerticalAlignment="Top" Width="100" Height="35" FontSize="16" Click="cancel_btn_Click"/>
+        <TextBlock x:Name="error_txt_box" HorizontalAlignment="Left" Margin="143,268,0,0" TextWrapping="Wrap" Foreground="Red" Text="{Binding Error_txt}" FontSize="16" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

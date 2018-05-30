@@ -28,6 +28,8 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
 
+            <TextBlock Grid.Row="0" x:Name="login_header" HorizontalAlignment="Center" Margin="0,30,0,0" TextWrapping="Wrap" Text="Sign In" FontSize="40" VerticalAlignment="Top"/>
+            
             <Grid Grid.Row="1" Margin="0,20,0,0">
                 
                 <Grid.ColumnDefinitions>
@@ -42,15 +44,15 @@
                 </Grid>
                 <Grid Grid.Column="1">
                     <TextBox x:Name="email_txt_box" FontSize="16" HorizontalAlignment="Left" Height="30" Margin="10,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200"/>
-                    <TextBox x:Name="password_txt_box" FontSize="16" HorizontalAlignment="Left" Height="30" Margin="10,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200"/>
+                    <PasswordBox x:Name="password_txt_box" PasswordChar="*" FontSize="16" HorizontalAlignment="Left" Height="30" Margin="10,50,0,0" VerticalAlignment="Top" Width="200"/>
 
                 </Grid>       
                 
             </Grid>
             
-            <Button Grid.Row="2" x:Name="button" Content="Login" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Height="35" FontSize="16" Click="button_Click"/>
-            <TextBlock Grid.Row="0" x:Name="login_header" HorizontalAlignment="Center" Margin="0,30,0,0" TextWrapping="Wrap" Text="Sign In" FontSize="40" VerticalAlignment="Top"/>
-            <TextBlock  Grid.Row="2" x:Name="error_txt" HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" Text="{Binding Error_Message}" Foreground="Red" VerticalAlignment="Top" Width="269"/>
+            <Button Grid.Row="2" x:Name="button" Content="Login" HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" Width="100" Height="35" FontSize="16" Click="button_Click"/>
+
+            <TextBlock FontSize="16"  Grid.Row="2" x:Name="error_txt" HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" Text="{Binding Error_Message}" Foreground="Red" VerticalAlignment="Top" Width="269"/>
 
         </Grid>        
         

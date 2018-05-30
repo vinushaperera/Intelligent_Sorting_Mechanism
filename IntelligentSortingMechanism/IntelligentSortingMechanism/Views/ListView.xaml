@@ -23,7 +23,7 @@
                 <RowDefinition Height="3*"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0" x:Name="list_name_txt" FontSize="40" HorizontalAlignment="Center" Margin="0,60,0,0" TextWrapping="Wrap" Text="List Name" VerticalAlignment="Top" Width="194"/>
+            <TextBlock Grid.Row="0" x:Name="list_name_txt" FontSize="40" HorizontalAlignment="Center" Margin="0,60,0,0" TextWrapping="Wrap" Text="List Name" VerticalAlignment="Top" Width="250"/>
 
             <DataGrid Grid.Row="1" x:Name="list_tasks_grid" FontSize="16" AutoGenerateColumns="False" CanUserAddRows="False" CanUserSortColumns="False" IsReadOnly="True" SelectionMode="Single" ItemsSource="{Binding Tasks_List}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Stretch" Height="500" Width="900">
                 <DataGrid.Columns>

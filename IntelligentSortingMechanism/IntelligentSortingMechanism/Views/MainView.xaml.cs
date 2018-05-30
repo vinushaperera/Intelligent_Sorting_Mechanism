@@ -48,16 +48,15 @@ namespace IntelligentSortingMechanism.Views
         private void button_Click(object sender, RoutedEventArgs e)
         {
 
-            //string email = email_txt_box.Text;
-            //string password = password_txt_box.Text;
-
-            string email = "vinusha@gmail.com";
-            string password = "123";
+            string email = email_txt_box.Text;
+            string password = password_txt_box.Password;
 
             if (!string.IsNullOrWhiteSpace(email) || !string.IsNullOrWhiteSpace(password))
             {
                 UserModel user = new UserModel();
-                user = user.GetLoginUser(email, password);
+                UserController controller = new UserController();
+
+                user = controller.UserLogin(email, password);                                
 
                 if (user.User_Logged_In)
                 {

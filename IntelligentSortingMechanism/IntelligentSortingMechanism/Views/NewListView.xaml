@@ -47,7 +47,7 @@
                 </DataGrid.Columns>
             </DataGrid>
 
-            <TextBlock Grid.Row="3" x:Name="err_msg_txt" Foreground="Red" HorizontalAlignment="Left" Margin="0,20,0,0" TextWrapping="Wrap" Text="{Binding Error_txt}" VerticalAlignment="Top"/>
+            <TextBlock Grid.Row="3" FontSize="16" x:Name="err_msg_txt" Foreground="Red" HorizontalAlignment="Left" Margin="0,20,0,0" TextWrapping="Wrap" Text="{Binding Error_txt}" VerticalAlignment="Top"/>
 
             <Grid Grid.Row="4" Margin="0,20,0,0">
                 

@@ -188,16 +188,19 @@ namespace IntelligentSortingMechanism.Views
                 filename = openBrowser.FileName;
             }
 
-            ListController controller = new ListController();
-            List<TaskModel> import_list = controller.ReadExcelFile(filename);
-
-            foreach (var item in import_list)
+            if (!string.IsNullOrWhiteSpace(filename))
             {
-                item.Task_front = 0;
-                item.Task_list_id = 0;
-                item.Task_sorted_order = 0;
-                tasks.Add(item);
-            }
+                ListController controller = new ListController();
+                List<TaskModel> import_list = controller.ReadExcelFile(filename);
+
+                foreach (var item in import_list)
+                {
+                    item.Task_front = 0;
+                    item.Task_list_id = 0;
+                    item.Task_sorted_order = 0;
+                    tasks.Add(item);
+                }
+            }            
         }
 
         #region NotifyProperty
